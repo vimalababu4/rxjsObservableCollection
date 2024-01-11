@@ -1,0 +1,23 @@
+<form>
+    <div class="form-group">
+      <input type = "search" class="form-control" name ="search" placeholder="Enter something" #search/>
+    </div>
+    <div class="form-group">
+      <input type = "search" class="form-control" name ="search" placeholder="Enter something" [form-control]="search"/>
+    </div>
+    <div> 
+      <button type="button" class="btn btn-primary" (click) ="doSearch(search.value)">Search</button>
+    </div>
+ </form>
+ 
+ <div class="=text-center">
+  <p class="load" *ngIf="loading">Loading...</p>
+
+ </div>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let track of results | async">
+      <img  src="{{track.thumbnail}}">
+      <a target="_blank"href="{{track.link}}">{{track.name}}</a>
+    </li>
+    </ul>
